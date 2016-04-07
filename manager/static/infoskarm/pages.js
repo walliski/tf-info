@@ -9,8 +9,11 @@ $(document).ready(function(){
 				$("#content").html(content);
 			});
 
-			setTimeout(getPage, data.duration * 1000 ,data.next);
+			setTimeout(getPage, data.duration * 1000, data.next);
 		})
+		.error(function () {
+			setTimeout(getPage, 60000, 0);
+		});
 	}
 
 	getPage(0);
