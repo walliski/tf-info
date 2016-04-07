@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 	setInterval(function () {
 		$.get('/voteresults/')
-		.success(
+		.done(
 			function(data){
 				$("#footer_center").html(data);
 			}

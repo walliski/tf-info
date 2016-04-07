@@ -3,13 +3,13 @@
 $(document).ready(function(){
 	function getLogo(index){
 		$.getJSON('/rotatelogos/'+index+'/')
-		.success(function(data){
+		.done(function(data){
 
 			$("#footer_left").html('<img src="'+data.url+'"></img>');
 
 			setTimeout(getLogo, 20000, data.next);
 		})
-		.error(function () {
+		.fail(function () {
 			setTimeout(getLogo, 60000, 0);
 		});
 	}

@@ -3,15 +3,16 @@
 $(document).ready(function(){
 	function getPage(index){
 		$.getJSON('/pages/'+index+'/')
-		.success(function(data){
+		.done(function(data){
 
-			$.get(data.url).success(function(content){
+			$.get(data.url)
+			.done(function(content){
 				$("#content").html(content);
 			});
 
 			setTimeout(getPage, data.duration * 1000, data.next);
 		})
-		.error(function () {
+		.fail(function () {
 			setTimeout(getPage, 60000, 0);
 		});
 	}
