@@ -9,6 +9,9 @@ $(document).ready(function(){
 
 			setTimeout(getLogo, 20000, data.next);
 		})
+		.error(function () {
+			setTimeout(getLogo, 60000, 0);
+		});
 	}
 
 	getLogo(0);
